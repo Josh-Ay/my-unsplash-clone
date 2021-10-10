@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $notoFont;
+}
+
+button{
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.zoom-in{
+    cursor: zoom-out !important;
+    transform: scale(1.1);
+}

@@ -1,0 +1,305 @@
+@import "./variables";
+@import "./custom";
+@import "./mixins";
+
+.container{
+    padding: 2% 6%;
+
+    @media (max-width: 767px){
+        padding: 6% 3%;
+    }
+}
+
+
+/***    NAVIGATION BAR  ***/
+nav{
+    @include displayFlexAlignAndJustifyContent(space-between, center);
+    .header-box{
+        width: 40%;
+        @include displayFlexAlignAndJustifyContent(space-between, center);
+        .search-box-container{
+            width: 18.75rem;
+            height: 3.4375rem;
+            @include displayFlexAlignAndJustifyContent(none, center);
+            .search-box{
+                @include displayFlexAlignAndJustifyContent(left, center);
+                border: 1px solid $greyColor;
+                border-radius: 0.75rem;
+                width: 100%;
+                height: 100%;
+                padding: 0 3%;
+                
+                .search-icon, input[type=text]::placeholder{
+                    color: $greyColor;
+                }
+                .search-icon{
+                    &:hover, &:focus{
+                        cursor: pointer;
+                    }
+                }
+                input[type=text]{
+                    outline: none;
+                    border: none;
+                    margin-left: 3%;
+                    width: 90%;
+                }
+            }
+        }
+        @media (min-width: 768px) and (max-width: 991px){
+            width: 50%;
+        }
+        @media (max-width: 767px){
+            @include displayFlexAlignAndJustifyContent(space-evenly, center);
+            width: 85%;
+            .search-box-container{
+                flex: 1;
+                margin-left: 1%;
+            }
+        }
+        @media (max-width: 300px){
+            @include displayFlexAlignAndJustifyContent(start, center);
+            header{
+                display: none;
+            }
+            .search-box-container{
+                margin-right: 2%;
+                width: 50%;
+            
+            }
+        }
+    }
+}
+
+
+/***    BUTTONS  ***/
+.green-btn{
+    background-color: $greenColor;
+}
+
+.red-btn{
+    background-color: $redColor;
+}
+
+.green-btn, .red-btn{
+    color: $white;
+    height: 3.4375rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 700;
+    &:hover, &:focus{
+        filter: opacity(0.85);
+    }
+}
+
+.add-btn{
+    padding: 1.38229% 1.678%;
+    line-height: 1.361875rem;
+
+    @media (max-width: 767px){
+        padding: 1.38229% 4.8%;
+    }
+}
+
+
+/***    IMAGES CONTAINER  ***/
+.images-container{
+    margin-top: 7%;
+    column-count: 3;
+    column-gap: 1.5rem;
+    .empty-images{
+        column-span: all;
+        text-align: center;
+    }
+    .image-box{
+        img{
+            width: 100%;
+            max-width: 100%;
+        }
+        margin-bottom: 1.5rem;
+        @media (max-width: 767px){
+            margin-bottom: 0.5rem;
+        }
+    }
+    .image{
+        border-radius: 0.75rem;
+        transition: .25s;
+        width: 100%;
+        &:hover, &:focus{
+            transform: scale(1.01);
+        }
+    }
+    .image-label{
+        @include centerAbsoluteElementHorizontally();
+        font-weight: 700;
+        font-size: 1.4rem;
+        position: absolute;
+        bottom: 8%;
+        width: max-content;
+        color: $white;
+    }
+    .delete-btn{
+        border: 1px solid $redColor;
+        background: transparent;
+        position: absolute;
+        color: $redColor;
+        right: 6%;
+        top: 6%;
+        padding: 0.396% 2.698%;
+        border-radius: 2.375rem;
+    }
+    @media (max-width: 767px){
+        column-count: 1;
+    }
+}
+
+
+/***    CARD: ADD AND DELETE POPUPS  ***/
+.card{
+    @include centerAbsoluteElementHorizontally();
+    width: 45.96%;
+    background: $white;
+    padding: 2% 2.2%;
+    position: absolute;
+    top: 30%;
+    border-radius: 12px;
+    box-shadow: 0 0 0 1000vmax $backgroundBlur;
+    transition: .25s ease-in-out;
+    h1, label{
+        font-weight: 500;
+    }
+    h1{
+        font-size: 1.5rem;
+        color: $darkCharcoal;
+        margin-bottom: 4%;
+
+        @media (max-width: 767px){
+            margin: 2% 0 4.8%;
+        }
+    }
+    label{
+        font-size: 0.875rem;
+        color: $darkGreyColor;
+        display: block;
+    }
+    input{
+        border-radius: 12px;
+        outline: none;
+        border: 1px solid $darkGreyColor;
+        filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1));
+        padding: 2.713% 3%;
+        display: block;
+        width: 100%;
+        margin: 1.7% 0 2%;
+        &::placeholder{
+            color: $greyColor;
+        }
+        @media (max-width: 767px){
+            margin-bottom: 4.8%;
+        }
+    }
+    .btns-container{
+        text-align: right;
+        margin-top: 5%;
+        & > *{
+            display: inline-block !important;
+        }
+        .cancel-btn{
+            padding: 1% 2%;
+            background: transparent;
+            font-size: 1rem;
+            color: $greyColor;
+        }
+        .submit-btn{
+            padding: 1.38229% 4.6047%;
+            margin-left: 2%;
+        }
+    }
+
+    @media (max-width: 767px){
+        top: 20%;
+        width: 94%;
+        padding: 5% 4%;
+    }
+}
+.error-message{
+    width: 100%;
+    .Toastify__toast--error{
+        width: 100%;
+    }
+}
+
+
+/***    VIEW SINGLE IMAGE  ***/
+.show-image{
+    width: 90%;
+    margin: 2% auto;
+    padding: 1.8% 1% 5%;
+    border-radius: 12px;
+    box-shadow: 0 0 0 100vmax $backgroundBlur;
+    
+    .icons-container{
+        @include displayFlexAndJustifyContent(space-between);
+        .close-icon{
+            &:hover, &:focus{
+                cursor: pointer;
+            }
+        }
+        .download-btn{
+            a{
+                text-decoration: none;
+                color: $white;
+            }
+            padding: 1% 2% ;
+        }
+    }
+    .image-card{
+        figure{
+            margin-top: 1%;
+            width: 100%;
+            img{
+                transition: 0.45s ease-in-out;
+                max-width: 100%;
+                display: block;
+                margin: 0 auto;
+                cursor: zoom-in;
+            }
+        }
+    }
+    @media (max-width: 767px){
+        width: 100%;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+        height: 100vh;
+        .icons-container-small{
+            position: absolute;
+            padding-top: 1.5%;
+            width: 100%;
+            height: max-content;
+            background: linear-gradient(top, rgba(0, 0, 0, 0.85), transparent);
+            .close-icon-small{
+                color: $white;
+            }
+        }
+        .icons-container{
+            position: absolute;
+            bottom: 0%;
+            padding: 2.5% 5% ;
+            width: 100%;
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 -15px 30px $backgroundBlur;
+            .close-icon{
+                display: none;
+            }
+            .download-btn{
+                margin: 0 auto;
+                padding: 1% 9% ;
+            }
+        }
+        .image-card{
+            figure{
+                margin-top: 0;
+            }
+        }
+    }
+}
