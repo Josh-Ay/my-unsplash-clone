@@ -6,15 +6,15 @@
 
 <div align="center">
   <h3>
-    <a href="https://focused-bassi-b35684.netlify.app/">
+    <a href="https://focused-bassi-b35684.netlify.app/" target="_blank">
       Demo
     </a>
     <span> | </span>
-    <a href="https://devchallenges.io/solutions/IgKv4WRie4HqpVSqmxA6">
+    <a href="https://devchallenges.io/solutions/IgKv4WRie4HqpVSqmxA6" target="_blank">
       Solution
     </a>
     <span> | </span>
-    <a href="https://devchallenges.io/challenges/rYyhwJAxMfES5jNQ9YsP">
+    <a href="https://devchallenges.io/challenges/rYyhwJAxMfES5jNQ9YsP" target="_blank">
       Challenge
     </a>
   </h3>
