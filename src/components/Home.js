@@ -66,7 +66,7 @@ const Home = (props) => {
     }else{
       return false;
     }
-  }
+  };
   
 
   return (

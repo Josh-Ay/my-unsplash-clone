@@ -2,7 +2,6 @@ import React from 'react';
 import Search from "./Search";
 import Button from "./Button";
 import { useMediaQuery } from "react-responsive";
-import { useHistory } from "react-router";
 import { useState } from "react";
 
 const Nav = (props) => {
@@ -13,8 +12,7 @@ const Nav = (props) => {
 
     const isMobileDevice = useMediaQuery({query: "(max-width: 767px)"});
     
-    const history = useHistory();
-    const routeToHome = () => {history.push("/")}
+    const routeToHome = () => { window.location = "/" };
 
     return (
         <nav>
@@ -30,9 +28,7 @@ const Nav = (props) => {
                 <Search />
             </div>
             <Button className="add-btn green-btn" content={isMobileDevice ? "+": "Add a photo"} mouseOver={true} action={props.showCard} />
-        </nav>
-
-        
+        </nav>  
     );
 
 };
