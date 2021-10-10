@@ -1,0 +1,15 @@
+@mixin displayFlexAndJustifyContent($justifyValue) {
+    display: flex;
+    justify-content: $justifyValue;
+}
+
+@mixin displayFlexAlignAndJustifyContent($justifyValue, $alignValue) {
+    display: flex;
+    justify-content: $justifyValue;
+    align-items: $alignValue;
+}
+
+@mixin centerAbsoluteElementHorizontally(){
+    left: 50%;
+    transform: translateX(-50%);
+}
