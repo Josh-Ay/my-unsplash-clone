@@ -11,10 +11,9 @@ const Nav = (props) => {
     const handleIn = () =>{setMouseHovered(true)};
     const handleOut = () =>{setMouseHovered(false)};
 
-
     const isMobileDevice = useMediaQuery({query: "(max-width: 767px)"});
+    
     const history = useHistory();
-
     const routeToHome = () => {history.push("/")}
 
     return (

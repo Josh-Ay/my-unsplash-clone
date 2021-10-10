@@ -20,15 +20,15 @@ const Home = (props) => {
 
   const handleMouseOut = () => { setMouseHovered(false); }
 
-  const showAddCard = () => { setActiveCard("add"); }
+  const showAddCard = () => { setActiveCard("add"); } // show add card
 
-  const showDeleteCard = (yPos, passedId) => {
+  const showDeleteCard = (yPos, passedId) => {  // show delete card relative to the position at which it was activated
     setImageToDeleteId(passedId);
     setDistanceFromTop(yPos);
     setActiveCard("delete");
   }
 
-  const hideCard = () => { setActiveCard("none"); }
+  const hideCard = () => { setActiveCard("none"); } // hide card: either 'add' or 'delete'
 
   const createImage = (image) => {
     return <div className="image-box" key={image._id}>
@@ -44,7 +44,7 @@ const Home = (props) => {
     </div>
   };
 
-  useEffect(() =>{
+  useEffect(() =>{  // fetch all images and update state
     async function fetchData() {
       const results = await axios.get("/images/all");
       setImages(results.data);
@@ -54,13 +54,13 @@ const Home = (props) => {
   }, []);
 
 
-  useEffect(() => {
+  useEffect(() => { //  updates searchReceived state to true if props were passed to this component from another route
     if (typeof props.location.state !== "undefined") {
       setSearchReceived(true);
     };  
   }, [props.location.state]);
 
-  const emptyImages = () => {
+  const emptyImages = () => { // function to check if there are currently no images
     if ( (images.length < 1) || ( (searchReceived) && (props.location.state.images.length < 1) ) ){
       return true;
     }else{
@@ -77,6 +77,7 @@ const Home = (props) => {
         { searchReceived ? props.location.state.images.map(createImage) : images.map(createImage) }
       </div>
 
+      {/* SHOW ADD CARD */}
       {activeCard === "add" && <Card className="card" heading="Add a new photo" 
         label1="Label" inputType1="text" placeholder1="Add photo label e.g Food, Technology, Sports etc"
         showSecondInput={true}
@@ -85,6 +86,7 @@ const Home = (props) => {
         btnTitle="Submit" btnClass="green-btn"
       />}
 
+      {/* SHOW DELETE CARD  */}
       {activeCard === "delete" && <Card className="card" heading="Are you sure?" 
         customStyle={{ top: `${distFromTop}px` }}
         label1="Password" inputType1="password" placeholder1="Password" 

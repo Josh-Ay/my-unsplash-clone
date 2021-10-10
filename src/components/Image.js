@@ -13,7 +13,7 @@ const Image = (props) => {
 
     const history = useHistory();
 
-    const showImage = () => {
+    const showImage = () => {   // fetch an image from api by id and route to 'ShowImage' component to display it
         async function fetchData() {
             const results = await axios.get(`/images/image/${props.id}`)
             if (results.status === 200) {
@@ -21,9 +21,7 @@ const Image = (props) => {
                 history.push({pathname: `/images/image/${imageReceived._id}`, state: {imgSrc: imageReceived.img_url, label: imageReceived.label} });
             }
         };
-
         fetchData();
-        
     }
 
     const customStyle = {

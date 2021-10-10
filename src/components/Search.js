@@ -10,7 +10,7 @@ const Search = () => {
     
     const handleChange = (e) => { setInputText(e.target.value); }
 
-    const searchImage = (e) => {
+    const searchImage = (e) => {    // search for an image by its label and route back to home displaying the results
         async function fetchImages(queryStr){
             const result = await axios.get(`/images/s/image/${queryStr}`);
             if (result.status === 200){
@@ -21,7 +21,7 @@ const Search = () => {
         if ((e.key === "Enter") && (inputText.length > 0) ){
             const formattedInputText = inputText[0].toUpperCase() + inputText.slice(1, inputText.length).toLowerCase();
             fetchImages(formattedInputText);
-        }else if( (e.target.classList.contains("search-icon") || e.target.parentNode.classList.contains("search-icon")) && inputText.length !== 0 ){
+        }else if( (e.target.classList.contains("search-icon") || e.target.parentNode.classList.contains("search-icon")) && inputText.length > 0 ){
             const formattedInputText = inputText[0].toUpperCase() + inputText.slice(1, inputText.length).toLowerCase();
             fetchImages(formattedInputText);
         };
