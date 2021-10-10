@@ -19,8 +19,8 @@ const Nav = (props) => {
     return (
         <nav>
             <div className="header-box">
-                <header>
-                    <picture style={{cursor: isMouseOver ? "pointer": "default"}} onClick={routeToHome} onMouseOver={handleIn} onMouseOut={handleOut}>
+                <header onClick={routeToHome}>
+                    <picture style={{cursor: isMouseOver ? "pointer": "default"}} onMouseOver={handleIn} onMouseOut={handleOut}>
                         <source media="(max-width: 767px)" srcSet="images/my_unsplash_small_logo.svg 13x" />
                         <source media="(min-width: 768px)" srcSet="images/my_unsplash_logo.svg" />
                         <img src="images/my_unsplash_logo.svg" alt="Unsplash logo" />
