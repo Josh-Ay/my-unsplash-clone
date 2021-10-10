@@ -7,8 +7,6 @@ import { useHistory } from 'react-router';
 const Search = () => {
     const [inputText, setInputText] = useState("");
     const history = useHistory();
-    // 1. get list of available labels
-    // 2. when one in list is clicked, return the display of all the ones that matched in DB 
     
     const handleChange = (e) => { setInputText(e.target.value); }
 

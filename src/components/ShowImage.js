@@ -26,7 +26,7 @@ const ShowImage = (props) => {
     };
 
     return <div className="show-image" style={ {position: "relative"} }>
-        {isMobileDevice && <div className="icons-container-small"> <CloseIcon className="close-icon-small" /> </div>}
+        {isMobileDevice && <div className="icons-container-small"> <CloseIcon className="close-icon-small" onClick={routeToHome} /> </div>}
         
         <div className="icons-container">
             <CloseIcon className="close-icon" onClick={routeToHome} />
