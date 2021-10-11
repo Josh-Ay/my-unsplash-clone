@@ -1,0 +1,48 @@
+[33mcommit 957627c47b0dc84e65b2ba24db39432b520ecac9[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Josh-Ay <ayo.oloyede16@gmail.com>
+Date:   Sun Oct 10 22:08:06 2021 +0100
+
+    Update header component
+
+[33mcommit 0704ec5e4e1f41181b2be2d239543bcce99de006[m
+Merge: 053f9c4 884f57a
+Author: Josh-Ay <ayo.oloyede16@gmail.com>
+Date:   Sun Oct 10 22:01:50 2021 +0100
+
+    Merge branch 'main' of https://github.com/Josh-Ay/my-unsplash-clone
+
+[33mcommit 053f9c47081592bd76226c64490ba1d42ca5c00e[m
+Author: Josh-Ay <ayo.oloyede16@gmail.com>
+Date:   Sun Oct 10 22:00:34 2021 +0100
+
+    Add description to code blocks
+
+[33mcommit 776ea6517f8db1780c1ae0799266788b2a91a6fa[m
+Author: Josh-Ay <ayo.oloyede16@gmail.com>
+Date:   Sun Oct 10 21:48:23 2021 +0100
+
+    Fix close icon for mobile devices
+
+[33mcommit 884f57a0b3705a513a3431c2aede727a301eb939[m
+Author: Josh-Ay <ayo.oloyede16@gmail.com>
+Date:   Sun Oct 10 02:21:14 2021 +0100
+
+    Update README.md
+
+[33mcommit eb9023165246a656c71b3d724f308f5abeee9120[m
+Author: Josh-Ay <ayo.oloyede16@gmail.com>
+Date:   Sun Oct 10 02:19:26 2021 +0100
+
+    Add README
+
+[33mcommit 8be494f0b3d6ff2eadae01556f50ecd4ec0e587a[m
+Author: Josh-Ay <ayo.oloyede16@gmail.com>
+Date:   Sun Oct 10 02:08:26 2021 +0100
+
+    Add build files
+
+[33mcommit 25039473347fe7851fc3e713c3cd5d8448c00ea7[m
+Author: Josh-Ay <ayo.oloyede16@gmail.com>
+Date:   Sun Oct 10 01:46:14 2021 +0100
+
+    Initial commit

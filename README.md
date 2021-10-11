@@ -81,4 +81,4 @@ $ npm start
 
 ## Contact
 
-- GitHub [@Josh-Ay](https://{github.com/Josh-Ay})
+- GitHub [@Josh-Ay](https://github.com/Josh-Ay)
