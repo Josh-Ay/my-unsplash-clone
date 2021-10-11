@@ -44,24 +44,31 @@ const Home = (props) => {
     </div>
   };
 
+  useEffect(() => { //  updates searchReceived state to true if props were passed to this component from another route and update images rendered
+    if (typeof props.location.state !== "undefined") {
+      setSearchReceived(true);
+      setImages(props.location.state.images);
+    };  
+  }, [props.location.state]);
+  
+
   useEffect(() =>{  // fetch all images and update state
     async function fetchData() {
-      const results = await axios.get("/images/all");
-      setImages(results.data);
+      await axios.get("/images/all")
+      .then((response)=>{
+        if (response.status === 200) {
+          setImages(response.data);
+        }
+      })
+      .catch((err)=>{ console.log(err.response); });
     };
     
     fetchData();
   }, []);
 
-
-  useEffect(() => { //  updates searchReceived state to true if props were passed to this component from another route
-    if (typeof props.location.state !== "undefined") {
-      setSearchReceived(true);
-    };  
-  }, [props.location.state]);
-
+  
   const emptyImages = () => { // function to check if there are currently no images
-    if ( (images.length < 1) || ( (searchReceived) && (props.location.state.images.length < 1) ) ){
+    if (images.length < 1){
       return true;
     }else{
       return false;
@@ -74,7 +81,7 @@ const Home = (props) => {
       <Nav showCard={showAddCard}/>
       <div className="images-container">
         {emptyImages() ? <div className="empty-images">No images available yet 😑</div>: ""}
-        { searchReceived ? props.location.state.images.map(createImage) : images.map(createImage) }
+        { images.map(createImage) }
       </div>
 
       {/* SHOW ADD CARD */}

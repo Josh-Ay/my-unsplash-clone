@@ -3,16 +3,27 @@ import Search from "./Search";
 import Button from "./Button";
 import { useMediaQuery } from "react-responsive";
 import { useState } from "react";
+import { useHistory } from "react-router";
+import axios from "axios";
 
 const Nav = (props) => {
     const [isMouseOver, setMouseHovered] = useState(false);
+    const history = useHistory();
 
     const handleIn = () =>{setMouseHovered(true)};
     const handleOut = () =>{setMouseHovered(false)};
 
     const isMobileDevice = useMediaQuery({query: "(max-width: 767px)"});
     
-    const routeToHome = () => { window.location = "/" };
+    const routeToHome = () => {
+        async function fetchImages(){
+            const result = await axios.get("/images/all");
+            if (result.status === 200){
+                history.go("/");
+            };
+        };
+        fetchImages();
+    };
 
     return (
         <nav>

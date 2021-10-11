@@ -6,9 +6,11 @@ import qs from "qs";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {checkEmptyString, checkUrlisValid, checkPassword} from '../validators/validator';
+import { useHistory } from "react-router";
 
 const Card = (props) => {
-    const routeToHome = () => { window.location = "/"; }    // redirect back to homepage( though remember you didn't use useHistory hook here. :( )
+    const history = useHistory();
+    const routeToHome = () => { history.go("/"); }    // redirect back to homepage.
 
     const [inputText, setInputText] = useState({firstInput: "", secondInput: "" });
 
@@ -24,10 +26,11 @@ const Card = (props) => {
     const postContent = (routeToPostTo, contentToPost) => {    // to post content using axios
         axios.post(routeToPostTo, qs.stringify(contentToPost))
         .then((response)=>{
-            console.log(response);
-            routeToHome();
+            if (response.status === 200){
+                routeToHome();
+            }
         })
-        .catch((err)=>{console.log(err)});
+        .catch((err)=>{console.log(err.response)});
     };
 
     const validateContent = (contentType) => { // function to validate the content that's inputted before it's posted
