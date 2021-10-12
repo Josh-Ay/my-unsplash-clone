@@ -4,6 +4,7 @@ import Image from "./Image";
 import Card from "./Card";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { emptyImages } from '../validators/validator';
 
 
 const Home = (props) => {
@@ -14,7 +15,7 @@ const Home = (props) => {
   const [imageToDeleteId, setImageToDeleteId] = useState("");
   const [images, setImages] = useState([]);
   const [distFromTop, setDistanceFromTop] = useState(0);
-  const [searchReceived, setSearchReceived] = useState(false);
+  const [inputReceived, setInputReceived] = useState(false);
 
   const handleMouseIn = () => { setMouseHovered(true); }
 
@@ -32,21 +33,21 @@ const Home = (props) => {
 
   const createImage = (image) => {
     return <div className="image-box" key={image._id}>
-          <Image id={image._id}
-            src={image.img_url} 
-            alt={image.label}
-            imgLabel={image.label}
-            mouseOver= {isMouseHovered}
-            handleIn= {handleMouseIn}
-            handleOut={handleMouseOut}
-            showDeleteCard={showDeleteCard}
-          />
+      <Image id={image._id}
+        src={image.img_url} 
+        alt={image.label}
+        imgLabel={image.label}
+        mouseOver= {isMouseHovered}
+        handleIn= {handleMouseIn}
+        handleOut={handleMouseOut}
+        showDeleteCard={showDeleteCard}
+      />
     </div>
   };
 
   useEffect(() => { //  updates searchReceived state to true if props were passed to this component from another route and update images rendered
     if (typeof props.location.state !== "undefined") {
-      setSearchReceived(true);
+      setInputReceived(true);
       setImages(props.location.state.images);
     };  
   }, [props.location.state]);
@@ -66,22 +67,12 @@ const Home = (props) => {
     fetchData();
   }, []);
 
-  
-  const emptyImages = () => { // function to check if there are currently no images
-    if (images.length < 1){
-      return true;
-    }else{
-      return false;
-    }
-  };
-  
 
   return (
     <div className="container">
       <Nav showCard={showAddCard}/>
       <div className="images-container">
-        {emptyImages() ? <div className="empty-images">No images available yet 😑</div>: ""}
-        { images.map(createImage) }
+        {emptyImages(images) ? <div className="empty-images">No images available yet 😑</div> : images.map(createImage) }
       </div>
 
       {/* SHOW ADD CARD */}

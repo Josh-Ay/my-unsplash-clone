@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 import validUrl from 'valid-url';
 
-function checkEmptyString(str) {    // check that a label was entered
+const checkEmptyString = (str) => {    // check that a label was entered
     if (str === "") {
         return toast.error("Please enter a label", {position: "top-center", hideProgressBar: true, pauseOnHover:false, autoClose:4000});
     } else {
@@ -9,7 +9,7 @@ function checkEmptyString(str) {    // check that a label was entered
     }
 }
 
-function checkUrlisValid(str) { // check validity of the url entered
+const checkUrlisValid = (str) => { // check validity of the url entered
     if (validUrl.isUri(str)){
         const image_url = new Image();  // creating a new image object to verify that the url is an actual image
         image_url.src = str;
@@ -23,7 +23,7 @@ function checkUrlisValid(str) { // check validity of the url entered
     }
 }
 
-function checkPassword(str) {   // check password match
+const checkPassword = (str) => {   // check password match
     if (str === "password123") {
         return true;
     } else {
@@ -31,4 +31,12 @@ function checkPassword(str) {   // check password match
     }
 }
 
-export {checkEmptyString, checkUrlisValid, checkPassword};
+const emptyImages = (listToCheck) => { // function to check if there are currently no images
+    if (listToCheck.length < 1){
+      return true;
+    }else{
+      return false;
+    }
+};
+
+export {checkEmptyString, checkUrlisValid, checkPassword, emptyImages};
