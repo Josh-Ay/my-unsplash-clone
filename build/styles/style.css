@@ -435,7 +435,7 @@ nav .header-box .search-box-container .search-box input[type=text] {
   }
   .show-image .icons-container-small {
     position: absolute;
-    padding-top: 1.5%;
+    padding: 3.5% 0 1.5% 2%;
     width: 100%;
     height: -webkit-max-content;
     height: -moz-max-content;

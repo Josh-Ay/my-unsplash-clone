@@ -15,7 +15,9 @@ const Home = (props) => {
   const [imageToDeleteId, setImageToDeleteId] = useState("");
   const [images, setImages] = useState([]);
   const [distFromTop, setDistanceFromTop] = useState(0);
-  const [inputReceived, setInputReceived] = useState(false);
+  
+  const inputReceived = useState(false);
+  const setInputReceived = inputReceived[1];
 
   const handleMouseIn = () => { setMouseHovered(true); }
 
@@ -50,7 +52,7 @@ const Home = (props) => {
       setInputReceived(true);
       setImages(props.location.state.images);
     };  
-  }, [props.location.state]);
+  }, [setInputReceived, props.location.state]);
   
 
   useEffect(() =>{  // fetch all images and update state
