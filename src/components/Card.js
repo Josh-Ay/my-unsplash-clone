@@ -47,6 +47,8 @@ const Card = (props) => {
             }else{
                 toast.error("Password is: password123", {position: "top-center", hideProgressBar: true, pauseOnHover:false, autoClose:3000})
             };
+        }else{
+            return;
         }
         
     };

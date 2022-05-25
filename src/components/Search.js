@@ -24,6 +24,8 @@ const Search = () => {
         }else if( (e.target.classList.contains("search-icon") || e.target.parentNode.classList.contains("search-icon")) && inputText.length > 0 ){
             const formattedInputText = inputText[0].toUpperCase() + inputText.slice(1, inputText.length).toLowerCase();
             fetchImages(formattedInputText);
+        }else{
+            return
         };
 
     };
