@@ -8,7 +8,7 @@ import { emptyImages } from '../validators/validator';
 
 
 const Home = (props) => {
-  axios.defaults.baseURL = "https://my-unsplash-clone-app.herokuapp.com/";
+  axios.defaults.baseURL = "https://fierce-ruby-beaver.cyclic.app/";
 
   const [isMouseHovered, setMouseHovered] = useState(false);
   const [activeCard, setActiveCard] = useState("none");
