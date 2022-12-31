@@ -8,13 +8,14 @@ import { emptyImages } from '../validators/validator';
 
 
 const Home = (props) => {
-  axios.defaults.baseURL = "https://my-unsplash-clone-app.herokuapp.com/";
+  axios.defaults.baseURL = "https://fierce-ruby-beaver.cyclic.app/";
 
   const [isMouseHovered, setMouseHovered] = useState(false);
   const [activeCard, setActiveCard] = useState("none");
   const [imageToDeleteId, setImageToDeleteId] = useState("");
   const [images, setImages] = useState([]);
   const [distFromTop, setDistanceFromTop] = useState(0);
+  const [imagesLoading, setImagesLoading] = useState(true);
   
   const inputReceived = useState(false);
   const setInputReceived = inputReceived[1];
@@ -61,9 +62,10 @@ const Home = (props) => {
       .then((response)=>{
         if (response.status === 200) {
           setImages(response.data);
+          setImagesLoading(false);
         }
       })
-      .catch((err)=>{ console.log(err.response); });
+      .catch((err)=>{ console.log(err.response); setImagesLoading(false); });
     };
     
     fetchData();
@@ -74,7 +76,7 @@ const Home = (props) => {
     <div className="container">
       <Nav showCard={showAddCard}/>
       <div className="images-container">
-        {emptyImages(images) ? <div className="empty-images">No images available yet 😑</div> : images.map(createImage) }
+        {imagesLoading ? <div className="empty-images">Please wait...</div> : emptyImages(images) ? <div className="empty-images">No images available yet 😑</div> : images.map(createImage) }
       </div>
 
       {/* SHOW ADD CARD */}
